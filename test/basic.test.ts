@@ -1,5 +1,3 @@
-import { ApplicationException } from "n-exception/dist/application-exception";
-import "n-ext";
 import * as Assert from "assert";
 const posthtml = require("posthtml");
 const plugin = require("./../src/index");
