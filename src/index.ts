@@ -35,7 +35,7 @@ module.exports = function postHtmlViewTemplatePlugin()
         };
 
         tree.clear();
-        tree.push(wrapper);
+        tree.push(...[Os.EOL, wrapper, Os.EOL]);
         return tree;
     };
 };

@@ -27,7 +27,7 @@ module.exports = function postHtmlViewTemplatePlugin() {
             content: [Os.EOL, ...tree, Os.EOL]
         };
         tree.clear();
-        tree.push(wrapper);
+        tree.push(...[Os.EOL, wrapper, Os.EOL]);
         return tree;
     };
 };
