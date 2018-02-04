@@ -11,13 +11,12 @@ suite("basic tests", () =>
 
         console.log(plugin);
 
-        const html = `
-            <div class="dashboard-view some-thing">
-                <h3>{{message}}</h3>
-                <score-board v-bind:score="score" v-bind:increment="increment"></score-board>
-                <router-link to="/Todo">Go to Todo</router-link>
-            </div>
-            `;
+        const html = 
+        `<div class="dashboard-view some-thing">
+            <h3>{{message}}</h3>
+            <score-board v-bind:score="score" v-bind:increment="increment"></score-board>
+            <router-link to="/Todo">Go to Todo</router-link>
+        </div>`;
 
         const result = posthtml()
             .use(plugin())
@@ -25,17 +24,16 @@ suite("basic tests", () =>
             .html;
 
         
-        const expected = `
-        <script type="text/x-template" id="dashboardview">
+        const expected = 
+        `<script type="text/x-template" id="dashboardview">
             <div class="dashboard-view some-thing">
                 <h3>{{message}}</h3>
                 <score-board v-bind:score="score" v-bind:increment="increment"></score-board>
                 <router-link to="/Todo">Go to Todo</router-link>
             </div>
-        </script>
-        `;
+        </script>`;
         
         console.log("Result", result);
-        // Assert.strictEqual(result, expected);
+        Assert.strictEqual(result, expected);
     });
 });

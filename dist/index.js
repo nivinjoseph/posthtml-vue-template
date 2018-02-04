@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const n_exception_1 = require("n-exception");
 require("n-ext");
+const Os = require("os");
 module.exports = function postHtmlViewTemplatePlugin() {
     return (tree) => {
         if (tree.length === 0)
@@ -23,7 +24,7 @@ module.exports = function postHtmlViewTemplatePlugin() {
                 type: "text/x-template",
                 id: classes.replaceAll("-", ""),
             },
-            content: [...tree]
+            content: [Os.EOL, ...tree, Os.EOL]
         };
         tree.clear();
         tree.push(wrapper);

@@ -1,5 +1,6 @@
 import { ApplicationException } from "n-exception";
 import "n-ext";
+import * as Os from "os";
 
 
 module.exports = function postHtmlViewTemplatePlugin()
@@ -30,7 +31,7 @@ module.exports = function postHtmlViewTemplatePlugin()
                 type: "text/x-template",
                 id: classes.replaceAll("-", ""),
             },
-            content: [...tree]
+            content: [Os.EOL, ...tree, Os.EOL]
         };
 
         tree.clear();
