@@ -1,0 +1,49 @@
+{
+  "name": "posthtml-vue-template",
+  "version": "1.0.0",
+  "description": "PostHTML plugin to turn HTML partials into Vue templates",
+  "main": "index.js",
+  "scripts": {
+    "ts-build": "tsc -p .",
+    "ts-build-dist": "tsc -p ./dist",
+    "clean-src": "find ./src -name '*.js' -delete -o -name '*.map' -delete",
+    "clean-test": "find ./test -name '*.js' -delete -o -name '*.map' -delete",
+    "clean-dist": "find ./dist -name '*.js' -delete -o -name '*.map' -delete -o -name '*.ts' -delete",
+    "clean-all": "npm run clean-src && npm run clean-test && npm run clean-dist",
+    "pretest": "npm run ts-build",
+    "test": "mocha --reporter spec --ui tdd --require ts-node/register './test/**/*.test.js' || true",
+    "pretest-ci": "npm run pretest",
+    "test-ci": "mocha --reporter spec --ui tdd --require ts-node/register './test/**/*.test.js'",
+    "pregit-publish": "npm run ts-build-dist && git add . && git commit -m 'preparing to publish new version'",
+    "git-publish": "npm version patch",
+    "postgit-publish": "git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nivinjoseph/posthtml-vue-template.git"
+  },
+  "keywords": [
+    "PostHTML",
+    "Vue",
+    "templates"
+  ],
+  "author": "NiviN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nivinjoseph/posthtml-vue-template/issues"
+  },
+  "homepage": "https://github.com/nivinjoseph/posthtml-vue-template#readme",
+  "devDependencies": {
+    "@types/mocha": "^2.2.39",
+    "@types/node": "^7.0.5",
+    "mocha": "^3.2.0",
+    "ts-node": "^2.1.0",
+    "tslint": "^4.5.1",
+    "typescript": "^2.2.1",
+    "posthtml": "^0.11.2"
+  },
+  "dependencies": {
+    "n-exception": "git+https://github.com/nivinjoseph/n-exception.git",
+    "n-ext": "git+https://github.com/nivinjoseph/n-ext.git"
+  }
+}
