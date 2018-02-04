@@ -1,6 +1,6 @@
 {
   "name": "posthtml-vue-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PostHTML plugin to turn HTML partials into Vue templates",
   "main": "index.js",
   "scripts": {
